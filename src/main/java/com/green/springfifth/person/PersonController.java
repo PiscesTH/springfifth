@@ -33,6 +33,7 @@ public class PersonController {
     @PutMapping("/person")
     public ResVo updPerson(@RequestBody UpdateDto dto){
         int result = service.updPerson(dto);
+        System.out.println(result);
         return new ResVo(result);
     }
 
