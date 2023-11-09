@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.springfifth.person.PersonMapper">
+    <insert id="insPerson">
+        INSERT INTO person
+        SET fname = #{fname},
+        lname = #{lname},
+        eye_color = #{eyeColor},
+        birth_date = #{birthDate}
+    </insert>
+
+    <select id="selPersonAll">
+        SELECT person_id as personId, fname, lname
+        FROM person
+    </select>
+
+    <select id="selOnePerson">
+        SELECT fname, lname, street, city, country
+        FROM person
+        WHERE person_id = #{personId}
+    </select>
+
+    <update id="updPerson">
+        UPDATE person
+        SET street = #{street},
+        city = #{city},
+        state = #{state},
+        postal_code = #{postalCode}
+        WHERE person_id = #{personId}
+    </update>
+
+    <delete id="delPerson">
+        DELETE FROM person
+        WHERE person_id = #{personId}
+    </delete>
+</mapper>
